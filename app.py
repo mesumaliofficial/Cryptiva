@@ -2,7 +2,6 @@ import streamlit as st
 from src.auth.login import show_login_form
 from src.auth.sign_up import show_sign_up_form
 from config.config import LOGO_PATH
-from src.home import render_home_page
 
 def style():
     with open("styles/login.css", "r") as f:
@@ -22,7 +21,8 @@ def initialize_session_state():
 initialize_session_state()
 
 if st.session_state.logged_in:  
-    render_home_page()
+    import home
+    home.render_home_page()
 
 else:
     st.image(LOGO_PATH, width=200)
