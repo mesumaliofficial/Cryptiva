@@ -1,20 +1,8 @@
 [
     {
-        "username": "mesumaliofficial",
-        "email": "syedmesumjaffary@gmail.com",
-        "password": "$2b$12$KjERxtMgl8dXddiEfOqgT.BLBYRG8HgQJf9Y5DQO09WTh.GdZBzim",
-        "confirm_password": "$2b$12$KjERxtMgl8dXddiEfOqgT.BLBYRG8HgQJf9Y5DQO09WTh.GdZBzim"
-    },
-    {
-        "username": "mesum",
-        "email": "abc@gmail.com",
-        "password": "$2b$12$jYeV9pOE1owvjOmtSRUSUug84Bq5IimHpFyg9BPzDs1pwYpK0S9pC",
-        "confirm_password": "$2b$12$jYeV9pOE1owvjOmtSRUSUug84Bq5IimHpFyg9BPzDs1pwYpK0S9pC"
-    },
-    {
-        "username": "abbas",
-        "email": "aaa@gmail.com",
-        "password": "$2b$12$FWnXGfl7VZiLf1lkTZJZX.N6BOq7kox.f1lpmehTuQQ.5aFCUa42K",
-        "confirm_password": "$2b$12$FWnXGfl7VZiLf1lkTZJZX.N6BOq7kox.f1lpmehTuQQ.5aFCUa42K"
+        "username": "admin",
+        "email": "admin@gmail.com",
+        "password": "$2b$12$GR8CA9qkhxJ62D8o0PPxVOOeKrYVgC5v.w/0WhxYcmmQVGlRFXOaO",
+        "confirm_password": "$2b$12$GR8CA9qkhxJ62D8o0PPxVOOeKrYVgC5v.w/0WhxYcmmQVGlRFXOaO"
     }
 ]

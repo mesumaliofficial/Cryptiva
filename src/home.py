@@ -40,7 +40,7 @@ def render_home_page():
     elif st.session_state.current_page == "store_data":
         st.title("📂 Encrypt & Save Your Confidential Data")
         
-        with st.form("Store Data", clear_on_submit=False):
+        with st.form("Store Data", clear_on_submit=True):
             data_name = st.text_input("Enter Your Data Name:", key="data_name")
             data_passkey = st.text_input("Enter Your Passkey / Password:", type="password", key="data_passkey")
 
