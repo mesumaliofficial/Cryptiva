@@ -1,4 +1,4 @@
-import bcrypt
+import hashlib
 import json
 import os
 from config.config import DATA_FILE_PATH, DATA_STORE_PATH
@@ -36,9 +36,10 @@ def save_users(data):
 
 def check_credentials(username, password, data):
     users = load_users()
+    hashed_input_password = hashlib.sha256(password.encode('utf-8')).hexdigest()
     for user in users:
         if user['username'] == username:
-            return bcrypt.checkpw(password.encode('utf-8'), user['password'].encode('utf-8'))
+            return hashed_input_password == user['password']
     return False
 
 
@@ -49,4 +50,4 @@ def check_username_exists(username, email, data):
     return False
 
 def hash_password(password):
-    return bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
+    return hashlib.sha256(password.encode('utf-8')).hexdigest()
