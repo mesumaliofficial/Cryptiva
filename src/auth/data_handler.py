@@ -50,4 +50,4 @@ def check_username_exists(username, email, data):
     return False
 
 def hash_password(password):
-    return hashlib.sha256(password.encode('utf-8')).hexdigest()
+    return hashlib.pbkdf2_hmac(password.encode('utf-8')).hexdigest()
