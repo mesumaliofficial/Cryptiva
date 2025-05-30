@@ -20,7 +20,6 @@ def show_sign_up_form():
             password = st.session_state.signup_password
             confirm_password = st.session_state.signup_confirm_password
 
-            hashed_password = hash_password(password)
 
             if not username or not email or not password or not confirm_password:
                 st.error("Please fill in all fields.")
@@ -29,11 +28,12 @@ def show_sign_up_form():
             else:
                 data = load_users()
                 if not check_username_exists(username, email, data):
+                    hashed_password, salt = hash_password(password)
                     data.append({
                         "username": username,
                         "email": email,
                         "password": hashed_password,
-                        "confirm_password": hashed_password
+                        "Salt": salt
                     })
                     save_users(data)
                     st.success("Sign up successful! You can now log in.")

@@ -51,11 +51,12 @@ def render_home_page():
                 if not data_name or not data_passkey:
                     st.error("Please fill in all fields.")
                 else:
-                    hashed_passkey = hash_password(data_passkey)
+                    hashed_passkey, salt = hash_password(data_passkey)
                     store_data = load_store_data()
                     store_data.append({
                         "Data_Name": data_name,
-                        "Data_Passkey": hashed_passkey
+                        "Hash": hashed_passkey,
+                        "Salt": salt
                     })
                     save_store_data(store_data)
                     st.success("Data encrypted and saved successfully!")
@@ -75,9 +76,11 @@ def render_home_page():
 
                 for item in store_data:
                     if item["Data_Name"] == data_name:
-                        stored_hashed_passkey = item['Data_Passkey']
+                        stored_hash = item["Hash"]
+                        stored_salt = item["Salt"]
                         
-                        if hash_password(data_passkey) == stored_hashed_passkey:
+                        new_hashed, _ = hash_password(data_passkey, salt=bytes.fromhex(stored_salt)) 
+                        if new_hashed == stored_hash:
                             st.success("✅ Access Granted!")
                             st.info(f"🔐 Your Data Name: **{data_name}**")
                             matched = True
